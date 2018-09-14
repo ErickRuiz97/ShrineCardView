@@ -11,14 +11,14 @@
     <string name="shr_product_description">The better services.</string>
 
     <!-- Shrine backdrop menu labels -->
-    <string name="shr_featured_label">Featured</string>
-    <string name="shr_apartment_label">Apartment</string>
-    <string name="shr_accessories_label">Accessories</string>
-    <string name="shr_shoes_label">Shoes</string>
-    <string name="shr_tops_label">Tops</string>
-    <string name="shr_bottoms_label">Bottoms</string>
-    <string name="shr_dresses_label">Dresses</string>
-    <string name="shr_account_label">My Account</string>
+    <string name="shr_featured_label">Account</string>
+    <string name="shr_apartment_label">Sales</string>
+    <string name="shr_accessories_label">Movies</string>
+    <string name="shr_shoes_label">Tv-Novelas</string>
+    <string name="shr_tops_label">Tests</string>
+    <string name="shr_bottoms_label">Spectrum</string>
+    <string name="shr_dresses_label">Plex</string>
+    <string name="shr_account_label">Nothing</string>
 
 
 </resources>

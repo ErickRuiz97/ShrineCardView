@@ -1,5 +1,6 @@
 package com.google.codelabs.mdc.java.shrine;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
 import com.google.codelabs.mdc.java.shrine.staggeredgridlayout.StaggeredProductCardRecyclerViewAdapter;
@@ -45,7 +47,9 @@ public class ProductGridFragment extends Fragment {
         });
         recyclerView.setLayoutManager(gridLayoutManager);
         StaggeredProductCardRecyclerViewAdapter adapter = new StaggeredProductCardRecyclerViewAdapter(ProductEntry.initProductEntryList(getResources()));
-        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            view.findViewById(R.id.product_grid).setBackground(getContext().getDrawable(R.drawable.shr_product_grid_background_shape));
+        }
         //recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2,GridLayoutManager.VERTICAL, false));
         //ProductCardRecyclerViewAdapter adapter = new ProductCardRecyclerViewAdapter(ProductEntry.initProductEntryList(getResources()));
         recyclerView.setAdapter(adapter);
@@ -58,10 +62,12 @@ public class ProductGridFragment extends Fragment {
     private void setUpToolbar(View view)
     {
         Toolbar toolbar = view.findViewById(R.id.app_bar);
+
         AppCompatActivity activity  =(AppCompatActivity) getActivity();
         if (activity!=null) {
             activity.setSupportActionBar(toolbar);
         }
+        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(getContext(), view.findViewById(R.id.product_grid), new AccelerateDecelerateInterpolator()));
     }
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
