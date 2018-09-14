@@ -27,19 +27,30 @@ public class LoginFragment extends Fragment {
         View view = inflater.inflate(R.layout.shr_login_fragment, container, false);
         final TextInputLayout passwordTextInput = view.findViewById(R.id.password_text_input);
         final TextInputEditText passwordEditText = view.findViewById(R.id.password_edit_text);
+        final TextInputLayout userTextInput = view.findViewById(R.id.user_text_input);
+        final TextInputEditText userEditText = view.findViewById(R.id.user_edit_text);
         MaterialButton nextButton = view.findViewById(R.id.next_button);
 
         nextButton.setOnClickListener(new View.OnClickListener()
                                       {
                                           @Override
                                           public void onClick(View v) {
-                                              if(!isPasswordValid(passwordEditText.getText())){
+                                              if(!isUserValid(userEditText.getText())){
+                                                  userTextInput.setError(getString(R.string.shr_error_user));
+                                              }
+                                              else if(!isPasswordValid(passwordEditText.getText())){
                                               passwordTextInput.setError(getString(R.string.shr_error_password));
                                               }
-                                              else {
+                                              else if(isUserValid(userEditText.getText())) {
                                                   passwordTextInput.setError(null);
                                                   ((NavigationHost) getActivity()).navigateTo(new ProductGridFragment(), false);
                                               }
+                                              else if(isPasswordValid(passwordEditText.getText()))
+                                              {
+                                                  userTextInput.setError(null);
+                                                  ((NavigationHost)getActivity()).navigateTo(new ProductGridFragment(), false);
+                                              }
+
                                           }
                                       }
         );
@@ -57,6 +68,11 @@ public class LoginFragment extends Fragment {
         // Snippet from "Navigate to the next Fragment" section goes here.
 
         return view;
+    }
+
+    private boolean isUserValid(@Nullable Editable text)
+    {
+        return text!= null && text.length() >= 4;
     }
 
     private boolean isPasswordValid(@Nullable Editable text)

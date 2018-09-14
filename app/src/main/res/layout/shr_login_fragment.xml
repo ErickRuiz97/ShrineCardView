@@ -17,13 +17,13 @@
         android:paddingTop="16dp">
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="175dp"
+            android:layout_height="147dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="48dp"
             android:layout_marginBottom="16dp"
-            app:srcCompat="@drawable/shr_logo"
-            android:tint="?android:attr/textColorPrimary"/>
+            android:layout_marginTop="48dp"
+            android:tint="?android:attr/textColorPrimary"
+            app:srcCompat="@drawable/ic_juoqbfd01" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,11 +38,13 @@
         <!-- Snippet from "Add text fields" section goes here. -->
         <android.support.design.widget.TextInputLayout
             style="@style/Widget.Shrine.TextInputLayout"
+            android:id="@+id/user_text_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/shr_hint_username">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/user_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
