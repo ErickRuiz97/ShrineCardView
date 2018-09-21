@@ -1,5 +1,8 @@
 package com.google.codelabs.mdc.java.shrine;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -36,12 +39,15 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
         // TODO: Put ViewHolder binding code here in MDC-102
         if(productList != null && position < productList.size())
         {
+
             ProductEntry product = productList.get(position);
             holder.productTitle.setText(product.title);
             holder.productPrice.setText(product.price);
             imageRequester.setImageFromUrl(holder.productImage, product.url);
+
         }
     }
+
 
     @Override
     public int getItemCount() {

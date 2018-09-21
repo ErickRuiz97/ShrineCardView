@@ -19,7 +19,7 @@ import com.google.codelabs.mdc.java.shrine.network.ProductEntry;
 import com.google.codelabs.mdc.java.shrine.staggeredgridlayout.StaggeredProductCardRecyclerViewAdapter;
 
 public class ProductGridFragment extends Fragment {
-
+    //private final View.OnClickListener mOnClickListener = new MyOnClickListener();
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -74,6 +74,8 @@ public class ProductGridFragment extends Fragment {
         menuInflater.inflate(R.menu.shr_toolbar_menu, menu);
         super.onCreateOptionsMenu(menu, menuInflater);
     }
+
+
 
 
 

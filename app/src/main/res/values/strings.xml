@@ -20,6 +20,7 @@
     <string name="shr_bottoms_label">Spectrum</string>
     <string name="shr_dresses_label">Plex</string>
     <string name="shr_account_label">Nothing</string>
+    <string name="title_activity_movies">Movies</string>
 
 
 </resources>
